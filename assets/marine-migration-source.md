@@ -9,11 +9,22 @@ Folium map remains in the project repository at `outputs/migration_map.html`
 (Git blob 2bb7e3fa4f30d74b9507acf271b2069d9eeac050).
 The portfolio preview requires no API keys, tile server, or map scripts.
 
-`marine-migration.svg` plots all eight L.polyline coordinate arrays from the original
-HTML, preserving point order, on a longitude/latitude grid. No generated or
-invented tracks or coastline. Coordinates use x = 65 + (longitude - 72.15) /
-1.1 * 770 and y = 125 + (-7.2 - latitude) / .35 * 245. Lines are colored only
-for distinction; colors do not encode species or distance.
+`marine-migration.svg` is a self-contained geographic preview generated directly
+from the local source CSV's valid, visible observations. The main map highlights
+animals 52231 and 64792; the Diego Garcia inset shows 64789, 64794, and 178882.
+Observations are sorted chronologically per animal. Lines break at consecutive
+steps over 200 km or time gaps over 48 hours. Main tracks sample every third
+point per uninterrupted segment; inset tracks sample every fifth; segment
+endpoints are retained. Colors distinguish individual animals, not species.
+This preview does not represent a recalculation of the repository's analyses.
+
+Coastlines are Natural Earth 1:10m admin-0 polygons (public domain):
+https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson
+https://www.naturalearthdata.com/about/terms-of-use/
+Main extent: 47–77 degrees east, 0.5–17.85 degrees south.
+Inset extent: 72.31–72.55 degrees east, 7.20–7.49 degrees south.
+Both maps use equirectangular coordinates. No invented tracks or coastline;
+no network resources, tile server, or runtime map API.
 
 The local source CSV contains 124,967 rows, 124,962 with complete animal ID,
 timestamp and coordinates. Restricting to visible=True yields 88,727 complete
