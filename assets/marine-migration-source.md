@@ -3,11 +3,13 @@
 Source: https://github.com/emily-kathryn/marine-migration-visualizer
 Commit: 27a1ad3095414b523185b837ab20a10b004eba6a
 
-`migration-map.html` is an unchanged copy of `outputs/migration_map.html`
+The portfolio hosts only a static SVG preview. The interactive HTML was removed
+because its external CARTO basemap returned API-key error tiles. The original
+Folium map remains in the project repository at `outputs/migration_map.html`
 (Git blob 2bb7e3fa4f30d74b9507acf271b2069d9eeac050).
-It uses external Leaflet/Folium dependencies and CARTO/OpenStreetMap tiles.
+The portfolio preview requires no API keys, tile server, or map scripts.
 
-`marine-migration.svg` plots all eight L.polyline coordinate arrays from that
+`marine-migration.svg` plots all eight L.polyline coordinate arrays from the original
 HTML, preserving point order, on a longitude/latitude grid. No generated or
 invented tracks or coastline. Coordinates use x = 65 + (longitude - 72.15) /
 1.1 * 770 and y = 125 + (-7.2 - latitude) / .35 * 245. Lines are colored only
