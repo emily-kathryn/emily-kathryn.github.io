@@ -33,6 +33,17 @@
     nav a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 600; }
     nav a:hover, .text-link:hover { color: var(--accent); }
     .hero { padding: 96px 0 94px; border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: center; gap: 48px; }
+    .hero-copy { min-width: 0; }
+    .portrait { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .about-photo { margin: 32px 0 0; }
+    .about-photo img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    img { max-width: 100%; }
+    nav a { display: inline-block; padding: 10px 0; }
+    @media (min-width: 761px) and (max-width: 980px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr) 240px; gap: 30px; }
+      .hero h1 { font-size: 52px; }
+    }
     .eyebrow { margin: 0 0 22px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-size: 12px; }
     h1, h2, h3, p { margin-top: 0; }
     h1, h2 { font-family: Georgia, "Times New Roman", serif; letter-spacing: -.035em; font-weight: normal; }
@@ -76,7 +87,14 @@
       .container { padding: 0 22px; }
       .nav { padding: 18px 0; min-height: unset; align-items: flex-start; flex-direction: column; gap: 12px; }
       nav { gap: 18px; }
-      .hero { padding: 65px 0; }
+      .hero { padding: 48px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .portrait { width: min(100%, 320px); }
+      .hero h1 { font-size: clamp(38px, 9vw, 58px); }
+      .hero-links { gap: 14px 22px; }
+      nav { gap: 22px; }
+      .project { min-width: 0; }
+      .meta { overflow-wrap: anywhere; }
       .intro { font-size: 17px; }
       section { padding: 60px 0; }
       .section-head, .about-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -102,7 +120,8 @@
   </header>
   <main id="main">
     <div id="top" class="hero">
-      <div class="container">
+      <div class="container hero-grid">
+        <div class="hero-copy">
         <p class="eyebrow">Computer Science · Scientific Machine Learning</p>
         <h1>Machine learning for scientific understanding.</h1>
         <p class="intro">I'm Emily Ehrenberg, a computer science undergraduate at California Baptist University. I'm interested in how machine learning can help researchers make sense of complex data, particularly in environmental monitoring, marine science, and conservation.</p>
@@ -111,6 +130,8 @@
           <a class="text-link" href="https://github.com/emily-kathryn" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a class="text-link" href="https://www.linkedin.com/in/emily-ehrenberg/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
+        </div>
+        <img class="portrait" src="profile.jpg" width="982" height="1387" alt="Emily Ehrenberg on a forest trail" fetchpriority="high">
       </div>
     </div>
 
@@ -167,6 +188,9 @@
             <div class="detail-label">Interests</div>
             <div class="detail-value">Scientific machine learning, environmental computing, computer vision, topological data analysis</div>
           </div>
+          <figure class="about-photo">
+            <img src="ocean-sunset.jpg" width="2048" height="1536" alt="Emily looking out over the ocean beneath a pink sunset sky" loading="lazy" decoding="async">
+          </figure>
         </div>
       </div>
     </section>
