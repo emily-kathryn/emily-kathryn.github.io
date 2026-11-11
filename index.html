@@ -53,10 +53,12 @@
           <a href="mapper.png">View the full Mapper graph <span aria-hidden="true">↗</span></a>
         </div>
         <figure class="tda-visual">
-          <img src="assets/tda-persistence.png" data-animation="assets/tda-persistence.gif" width="960" height="540" alt="Persistence barcode showing the eight longest H1 intervals in the paper-landmark analysis. Each bar spans the distances where a loop is present." loading="lazy">
+          <a class="mapper-preview" href="mapper.png" aria-label="Open the full-size Mapper graph">
+            <img src="mapper.png" width="3840" height="2400" alt="Mapper graph from paper embeddings, with branching green and teal clusters linked by shared papers" loading="lazy">
+          </a>
           <figcaption>
-            <span>Persistent homology · 768 paper landmarks</span>
-            <button class="tda-toggle" type="button" hidden>Play GIF</button>
+            <span>Mapper graph · Paper embeddings</span>
+            <button class="tda-toggle" type="button" hidden>Pause preview</button>
           </figcaption>
         </figure>
       </article>
@@ -73,23 +75,6 @@
           <button class="motion-toggle" type="button" hidden>Pause motion</button>
         </div>
         <div class="project-grid">
-          <article class="project-card">
-            <figure>
-              <a class="project-media" href="assets/marine-migration.svg" aria-label="Open the full sea turtle map and Diego Garcia inset">
-                <img src="assets/turtle-tracks.svg" width="980" height="560" alt="Two recorded sea turtle tracks in the western Indian Ocean" loading="lazy">
-              </a>
-              <figcaption>Recorded GPS tracks · Natural Earth coastlines</figcaption>
-            </figure>
-            <div class="card-copy">
-              <p class="label">Independent project</p>
-              <h3>Sea turtle migration</h3>
-              <p>I mapped hawksbill and green turtle GPS tracks and used Haversine distances to estimate daily movement.</p>
-              <div class="links">
-                <a href="assets/marine-migration.svg">Full map &amp; inset <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/emily-kathryn/marine-migration-visualizer" aria-label="Sea turtle migration on GitHub">GitHub <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
-          </article>
           <article class="project-card">
             <figure>
               <a class="project-media detection-preview" data-motion href="assets/marine-debris-detection.png" aria-label="Compare the original and annotated underwater frames">
@@ -149,6 +134,23 @@
               <div class="links">
                 <a href="assets/weather-preview.webp">Full chart <span aria-hidden="true">↗</span></a>
                 <a href="https://github.com/emily-kathryn/weather-prediction-project">Notebook repository <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure>
+              <a class="project-media" href="assets/marine-migration.svg" aria-label="Open the full sea turtle map and Diego Garcia inset">
+                <img src="assets/turtle-tracks.svg" width="980" height="560" alt="Two recorded sea turtle tracks in the western Indian Ocean" loading="lazy">
+              </a>
+              <figcaption>Recorded GPS tracks · Natural Earth coastlines</figcaption>
+            </figure>
+            <div class="card-copy">
+              <p class="label">Independent project</p>
+              <h3>Sea turtle migration</h3>
+              <p>I mapped hawksbill and green turtle GPS tracks and used Haversine distances to estimate daily movement.</p>
+              <div class="links">
+                <a href="assets/marine-migration.svg">Full map &amp; inset <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/emily-kathryn/marine-migration-visualizer" aria-label="Sea turtle migration on GitHub">GitHub <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
