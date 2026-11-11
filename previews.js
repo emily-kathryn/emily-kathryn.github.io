@@ -51,14 +51,47 @@ if ('IntersectionObserver' in window) {
   toggle.hidden = false;
 }
 
-const mapperImage = document.querySelector('.mapper-preview img');
+const mapperVideo = document.querySelector('.mapper-animation');
 const mapperToggle = document.querySelector('.tda-toggle');
-const mapperStill = mapperImage.getAttribute('src');
-let mapperPlaying = false;
+let mapperInView = false;
+let mapperPaused = reducedMotion.matches;
 
-mapperToggle.addEventListener('click', () => {
-  mapperPlaying = !mapperPlaying;
-  mapperImage.src = mapperPlaying ? mapperImage.dataset.animation : mapperStill;
-  mapperToggle.textContent = mapperPlaying ? 'Stop preview' : 'Play preview';
-});
-mapperToggle.hidden = false;
+function updateMapper() {
+  mapperToggle.textContent = mapperPaused ? 'Play PCA Mapper animation' : 'Pause PCA Mapper animation';
+  if (!mapperPaused && mapperInView && !document.hidden) {
+    mapperVideo.play().catch(error => {
+      if (error.name === 'AbortError') return;
+      mapperPaused = true;
+      updateMapper();
+    });
+  } else {
+    mapperVideo.pause();
+  }
+}
+
+if ('IntersectionObserver' in window) {
+  const mapperObserver = new IntersectionObserver(([entry]) => {
+    mapperInView = entry.isIntersecting;
+    updateMapper();
+  });
+  mapperObserver.observe(mapperVideo.closest('.mapper-preview'));
+
+  mapperVideo.addEventListener('playing', () => {
+    mapperVideo.classList.add('is-visible');
+  });
+  mapperToggle.addEventListener('click', () => {
+    mapperPaused = !mapperPaused;
+    updateMapper();
+  });
+  reducedMotion.addEventListener('change', () => {
+    mapperPaused = reducedMotion.matches;
+    if (mapperPaused) {
+      mapperVideo.classList.remove('is-visible');
+      mapperVideo.currentTime = 0;
+    }
+    updateMapper();
+  });
+  document.addEventListener('visibilitychange', updateMapper);
+  updateMapper();
+  mapperToggle.hidden = false;
+}
