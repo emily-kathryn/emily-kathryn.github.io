@@ -44,22 +44,14 @@ if ('IntersectionObserver' in window) {
   toggle.hidden = false;
 }
 
-const mapperPreview = document.querySelector('.mapper-preview');
+const mapperImage = document.querySelector('.mapper-preview img');
 const mapperToggle = document.querySelector('.tda-toggle');
-let mapperPlaying = !reducedMotion.matches;
-
-function updateMapperPreview() {
-  mapperPreview.classList.toggle('is-playing', mapperPlaying);
-  mapperToggle.textContent = mapperPlaying ? 'Pause preview' : 'Play preview';
-}
+const mapperStill = mapperImage.getAttribute('src');
+let mapperPlaying = false;
 
 mapperToggle.addEventListener('click', () => {
   mapperPlaying = !mapperPlaying;
-  updateMapperPreview();
+  mapperImage.src = mapperPlaying ? mapperImage.dataset.animation : mapperStill;
+  mapperToggle.textContent = mapperPlaying ? 'Stop preview' : 'Play preview';
 });
-reducedMotion.addEventListener('change', () => {
-  mapperPlaying = !reducedMotion.matches;
-  updateMapperPreview();
-});
-updateMapperPreview();
 mapperToggle.hidden = false;
