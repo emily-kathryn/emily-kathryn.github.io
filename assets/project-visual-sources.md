@@ -60,3 +60,12 @@ comparison remains linked from the card.
 The animated preview alternates that prediction with
 `debris-original-frame.jpg`, a crop from the matching lower-left original
 frame. This is a before-and-after view of a single frame.
+
+## Paper persistence barcode
+
+The eight bars use the birth and death values of ranks 1–8 in
+`outputs/persistent_homology/validation/papers_h1_top20.csv` from the local
+CAiMLL Topology checkout at commit `0627c2a`. The Euclidean Vietoris–Rips
+baseline uses 768 deterministic landmarks from 3,490 paper embeddings.
+The marker sweeps edge-distance thresholds from 0.60 to 0.76. A bar is
+highlighted when birth ≤ threshold < death. Endpoints are fixed across frames.

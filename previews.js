@@ -43,3 +43,15 @@ if ('IntersectionObserver' in window) {
   updatePreviews();
   toggle.hidden = false;
 }
+
+const tdaImage = document.querySelector('.tda-visual img');
+const tdaToggle = document.querySelector('.tda-toggle');
+const tdaStill = tdaImage.getAttribute('src');
+let tdaPlaying = false;
+
+tdaToggle.hidden = false;
+tdaToggle.addEventListener('click', () => {
+  tdaPlaying = !tdaPlaying;
+  tdaImage.src = tdaPlaying ? tdaImage.dataset.animation : tdaStill;
+  tdaToggle.textContent = tdaPlaying ? 'Stop GIF' : 'Play GIF';
+});

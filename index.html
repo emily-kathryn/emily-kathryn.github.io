@@ -32,7 +32,7 @@
           <p class="affiliation">California Baptist University · B.S. expected May 2027</p>
           <p class="intro">I’m interested in using machine learning and data visualization to study the natural world, especially in marine science and conservation.</p>
           <div class="actions">
-            <a class="button" href="#research">View my research</a>
+            <a class="button" href="#projects">View projects</a>
             <a href="mailto:Emily.ehrenberg@outlook.com">Email me <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -52,9 +52,12 @@
           <p>I built Mapper graphs from embeddings of 3,490 papers and used resampling to test which patterns held across analysis choices. I also used persistent homology to study how groups and loops change across distance scales.</p>
           <a href="mapper.png">View the full Mapper graph <span aria-hidden="true">↗</span></a>
         </div>
-        <figure>
-          <img src="mapper.png" width="3840" height="2400" alt="Mapper graph with connected green and teal clusters of papers" loading="lazy">
-          <figcaption>Mapper graph from the literature analysis</figcaption>
+        <figure class="tda-visual">
+          <img src="assets/tda-persistence.png" data-animation="assets/tda-persistence.gif" width="960" height="540" alt="Persistence barcode showing the eight longest H1 intervals in the paper-landmark analysis. Each bar spans the distances where a loop is present." loading="lazy">
+          <figcaption>
+            <span>Persistent homology · 768 paper landmarks</span>
+            <button class="tda-toggle" type="button" hidden>Play GIF</button>
+          </figcaption>
         </figure>
       </article>
       <article class="brief">
