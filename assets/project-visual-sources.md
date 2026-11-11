@@ -49,3 +49,10 @@
 
 ## History of Medicine
 Original illustrated covers, not historical facsimiles. Titles verified against the user’s Google Drive Documents of Interest research folder: On the Sacred Disease by Hippocrates, Timaeus by Plato, and Shennong Bencaojing. No pages or modern translations reproduced.
+
+## Marine debris card
+
+`debris-frame.jpg` crops the lower-right YOLO11n prediction from the existing
+`marine-debris-detection.png` comparison. The box and confidence label are
+from the original output. J-Litter imagery © JAMSTEC. The original two-pair
+comparison remains linked from the card.
