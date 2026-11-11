@@ -1,0 +1,64 @@
+const previews = document.querySelectorAll('[data-motion]');
+const toggle = document.querySelector('.motion-toggle');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const visible = new Set();
+let paused = reducedMotion.matches;
+
+function updatePreviews() {
+  toggle.textContent = paused ? 'Play previews' : 'Pause motion';
+
+  for (const preview of previews) {
+    const playing = !paused && !document.hidden && visible.has(preview);
+    preview.classList.toggle('is-moving', playing);
+
+    const animatedImage = preview.querySelector('img[data-animation]');
+    if (animatedImage) {
+      animatedImage.dataset.still ??= animatedImage.getAttribute('src');
+      const source = playing ? animatedImage.dataset.animation : animatedImage.dataset.still;
+      if (animatedImage.getAttribute('src') !== source) animatedImage.src = source;
+    }
+
+    if (!(preview instanceof HTMLVideoElement)) continue;
+    if (playing) {
+      if (!preview.hasAttribute('src')) preview.src = preview.dataset.src;
+      preview.play().catch(() => {});
+    } else {
+      preview.pause();
+    }
+  }
+}
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) visible.add(entry.target);
+      else visible.delete(entry.target);
+    }
+    updatePreviews();
+  }, { threshold: 0.25 });
+
+  for (const preview of previews) observer.observe(preview);
+  toggle.addEventListener('click', () => {
+    paused = !paused;
+    updatePreviews();
+  });
+  reducedMotion.addEventListener('change', () => {
+    paused = reducedMotion.matches;
+    updatePreviews();
+  });
+  document.addEventListener('visibilitychange', updatePreviews);
+  updatePreviews();
+  toggle.hidden = false;
+}
+
+const mapperImage = document.querySelector('.mapper-preview img');
+const mapperToggle = document.querySelector('.tda-toggle');
+const mapperStill = mapperImage.getAttribute('src');
+let mapperPlaying = false;
+
+mapperToggle.addEventListener('click', () => {
+  mapperPlaying = !mapperPlaying;
+  mapperImage.src = mapperPlaying ? mapperImage.dataset.animation : mapperStill;
+  mapperToggle.textContent = mapperPlaying ? 'Stop preview' : 'Play preview';
+});
+mapperToggle.hidden = false;

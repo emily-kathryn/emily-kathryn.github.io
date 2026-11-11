@@ -49,3 +49,25 @@
 
 ## History of Medicine
 Original illustrated covers, not historical facsimiles. Titles verified against the user’s Google Drive Documents of Interest research folder: On the Sacred Disease by Hippocrates, Timaeus by Plato, and Shennong Bencaojing. No pages or modern translations reproduced.
+
+## Marine debris card
+
+`debris-detection-closeup.jpg` crops the lower-right YOLO11n prediction from the existing
+`marine-debris-detection.png` comparison. The box and confidence label are
+from the original output. J-Litter imagery © JAMSTEC. The original two-pair
+comparison remains linked from the card.
+
+The animated preview wipes between that prediction and
+`debris-original-closeup.jpg`, a crop from the matching lower-left original
+frame. Both crops focus on the same region of a single frame.
+
+## Mapper overlap preview
+
+Uses the 61 nodes and 173 edges in `mapper_nodes.csv` and `mapper_edges.csv`
+under `outputs/mapper/lens_comparison/pca` in CAiMLL Topology commit
+`0627c2a`. Positions are saved PCA centroids on equal scales, node area
+approximately follows membership, and brighter, thicker edges indicate
+greater shared membership. The animation filters the saved edges by
+`shared_member_count`, from at least 1 shared paper to at least 80, then
+reverses the sweep. Nodes keep their positions and isolated nodes dim.
+This is post-processing of one saved graph; Mapper is not refitted.

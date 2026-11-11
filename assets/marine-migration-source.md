@@ -35,3 +35,14 @@ The map independently drops rows whose incoming segment exceeds 200 km,
 selects eight turtles with most points, then retains every fifth point.
 It reconnects retained points, so it is an exploratory visualization rather
 than a guarantee that all plotted segments are below 200 km.
+
+The portfolio card uses `turtle-tracks.svg`, a map-only adaptation of the
+main panel. Its two tracks and coastline geometry come from the full preview.
+The full preview remains linked for the Diego Garcia inset and dataset context.
+
+The portfolio card replays hawksbill 52231 from October through December 2018.
+It uses the original visible fixes from the local telemetry CSV, in timestamp
+order, with a uniformly accelerated clock. The marker advances only to recorded
+fixes. Lines connect successive observations for display. This selected window
+has no gaps exceeding 48 hours. The map reuses the existing Natural Earth
+coastlines. The full map still shows the second track and Diego Garcia inset.
