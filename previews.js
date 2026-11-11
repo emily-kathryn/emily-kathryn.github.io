@@ -11,6 +11,13 @@ function updatePreviews() {
     const playing = !paused && !document.hidden && visible.has(preview);
     preview.classList.toggle('is-moving', playing);
 
+    const animatedImage = preview.querySelector('img[data-animation]');
+    if (animatedImage) {
+      animatedImage.dataset.still ??= animatedImage.getAttribute('src');
+      const source = playing ? animatedImage.dataset.animation : animatedImage.dataset.still;
+      if (animatedImage.getAttribute('src') !== source) animatedImage.src = source;
+    }
+
     if (!(preview instanceof HTMLVideoElement)) continue;
     if (playing) {
       if (!preview.hasAttribute('src')) preview.src = preview.dataset.src;
