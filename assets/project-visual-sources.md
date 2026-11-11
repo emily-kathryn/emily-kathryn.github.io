@@ -56,3 +56,7 @@ Original illustrated covers, not historical facsimiles. Titles verified against 
 `marine-debris-detection.png` comparison. The box and confidence label are
 from the original output. J-Litter imagery © JAMSTEC. The original two-pair
 comparison remains linked from the card.
+
+The animated preview alternates that prediction with
+`debris-original-frame.jpg`, a crop from the matching lower-left original
+frame. This is a before-and-after view of a single frame.

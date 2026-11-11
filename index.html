@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#122e36">
   <title>Emily Ehrenberg | Undergraduate Research &amp; Projects</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="previews.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -62,81 +63,93 @@
       </article>
     </section>
 
-    <section id="projects" class="section marine" aria-labelledby="marine-title">
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="label">Selected projects</p>
-          <h2 id="marine-title">Marine science projects</h2>
+        <div class="section-head projects-head">
+          <h2 id="projects-title">Projects</h2>
+          <button class="motion-toggle" type="button" hidden>Pause motion</button>
         </div>
-        <div class="marine-grid">
-          <article class="marine-card">
+        <div class="project-grid">
+          <article class="project-card">
             <figure>
-              <a href="assets/marine-migration.svg" aria-label="Open the full sea turtle map and Diego Garcia inset">
-                <img src="assets/turtle-tracks.svg" width="980" height="560" alt="Two recorded sea turtle tracks between Chagos and the western Indian Ocean" loading="lazy">
+              <a class="project-media" href="assets/marine-migration.svg" aria-label="Open the full sea turtle map and Diego Garcia inset">
+                <img src="assets/turtle-tracks.svg" width="980" height="560" alt="Two recorded sea turtle tracks in the western Indian Ocean" loading="lazy">
               </a>
-              <figcaption>Two recorded GPS tracks · Natural Earth coastlines</figcaption>
+              <figcaption>Recorded GPS tracks · Natural Earth coastlines</figcaption>
             </figure>
             <div class="card-copy">
               <p class="label">Independent project</p>
               <h3>Sea turtle migration</h3>
-              <p>I built a Python workflow to map GPS tracks and estimate daily distances for hawksbill and green turtles tagged in the Chagos Archipelago.</p>
+              <p>I mapped hawksbill and green turtle GPS tracks and used Haversine distances to estimate daily movement.</p>
               <div class="links">
                 <a href="assets/marine-migration.svg">Full map &amp; inset <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/emily-kathryn/marine-migration-visualizer" aria-label="Sea turtle migration source code on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/emily-kathryn/marine-migration-visualizer" aria-label="Sea turtle migration on GitHub">GitHub <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
-          <article class="marine-card">
+          <article class="project-card">
             <figure>
-              <a href="assets/marine-debris-detection.png" aria-label="Open the original and annotated underwater frames">
-                <img src="assets/debris-frame.jpg" width="1200" height="676" alt="Underwater camera frame with a YOLO11n bounding box around suspected debris" loading="lazy">
+              <a class="project-media detection-preview" data-motion href="assets/marine-debris-detection.png" aria-label="Compare the original and annotated underwater frames">
+                <img src="assets/debris-frame.jpg" width="1200" height="676" alt="A YOLO11n bounding box marks suspected debris in an underwater frame" loading="lazy">
+                <img class="original-frame" src="assets/debris-original-frame.jpg" width="1200" height="676" alt="" loading="lazy">
               </a>
-              <figcaption>YOLO11n prediction on a J-Litter frame · Imagery © JAMSTEC</figcaption>
+              <figcaption>YOLO11n prediction · J-Litter imagery © JAMSTEC</figcaption>
             </figure>
             <div class="card-copy">
               <p class="label">Machine learning project</p>
               <h3>Underwater debris detection</h3>
-              <p>I prepared underwater imagery for classification and tested object detection on J-Litter frames. I’m exploring how image degradation affects detection.</p>
+              <p>I prepared underwater images for classification and tested YOLO11n object detection on J-Litter frames.</p>
               <div class="links">
-                <a href="assets/marine-debris-detection.png">Detection comparison <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/emily-kathryn/marine-debris-robustness" aria-label="Marine debris source code on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="assets/marine-debris-detection.png">Compare frames <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/emily-kathryn/marine-debris-robustness" aria-label="Underwater debris detection on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure>
+              <video class="project-media" data-motion data-src="assets/quadruped-demo.mp4" muted loop playsinline preload="none" poster="assets/quadruped-poster.jpg" aria-label="HUND quadruped moving in NVIDIA Isaac Sim"></video>
+              <figcaption>HUND quadruped in NVIDIA Isaac Sim</figcaption>
+            </figure>
+            <div class="card-copy">
+              <p class="label">Team senior capstone</p>
+              <h3>Autonomous quadruped</h3>
+              <p>I implemented A* planning and obstacle-triggered replanning in simulation, plus a FastAPI mock backend for commands and telemetry.</p>
+              <div class="links"><a href="assets/quadruped-demo.mp4">Open simulation video <span aria-hidden="true">↗</span></a></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure>
+              <video class="project-media" data-motion data-src="relativity-demo.mp4" muted loop playsinline preload="none" poster="relativity-mission-card.webp" aria-label="Relativity dashboard showing a spacecraft mission and two clocks"></video>
+              <figcaption>Simulated mission to Alpha Centauri</figcaption>
+            </figure>
+            <div class="card-copy">
+              <p class="label">Independent project</p>
+              <h3>Relativity dashboard</h3>
+              <p>I built a C++ simulator and 3D visualizer that use RK4 integration to compare elapsed time on Earth and aboard a spacecraft.</p>
+              <div class="links">
+                <a href="relativity-demo.mp4">Open mission video <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/emily-kathryn/relativity-dashboard" aria-label="Relativity dashboard on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure>
+              <a class="project-media forecast-media" href="assets/weather-preview.webp" aria-label="Open the full weather forecasting chart">
+                <img src="assets/weather-preview.webp" width="1440" height="1000" alt="Observed London temperatures and next-day temperature model errors from the project notebook" loading="lazy">
+              </a>
+              <figcaption>Weather observations and notebook evaluation scores</figcaption>
+            </figure>
+            <div class="card-copy">
+              <p class="label">Course project</p>
+              <h3>Weather forecasting</h3>
+              <p>I compared linear regression, random forest, and XGBoost for next-day temperature prediction using RMSE.</p>
+              <div class="links">
+                <a href="assets/weather-preview.webp">Full chart <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/emily-kathryn/weather-prediction-project">Notebook repository <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section wrap" aria-labelledby="other-title">
-      <div class="section-head"><h2 id="other-title">Robotics, simulation &amp; forecasting</h2></div>
-      <div class="project-list">
-        <article>
-          <div>
-            <p class="label">Team senior capstone</p>
-            <h3>Autonomous quadruped</h3>
-            <p>I implemented A* path planning and obstacle-triggered replanning in simulation, plus a mock API for robot commands and telemetry.</p>
-          </div>
-          <a href="assets/quadruped-demo.mp4">Watch the simulation <span aria-hidden="true">↗</span></a>
-        </article>
-        <article>
-          <div>
-            <p class="label">Independent project</p>
-            <h3>Relativity dashboard</h3>
-            <p>I built a C++ simulator and 3D visualizer that compare elapsed time on Earth and aboard a spacecraft during a simulated mission.</p>
-          </div>
-          <div class="links">
-            <a href="relativity-demo.mp4">Watch the demo <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/emily-kathryn/relativity-dashboard" aria-label="Relativity dashboard source code on GitHub">GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article>
-          <div>
-            <p class="label">Course project</p>
-            <h3>Weather forecasting</h3>
-            <p>I prepared time-series data and compared linear regression, random forest, and XGBoost for next-day temperature prediction.</p>
-          </div>
-          <a href="https://github.com/emily-kathryn/weather-prediction-project">View the notebook repository <span aria-hidden="true">↗</span></a>
-        </article>
       </div>
     </section>
 

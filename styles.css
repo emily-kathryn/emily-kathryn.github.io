@@ -46,25 +46,33 @@ h1 { font-size: clamp(3.4rem, 8.3vw, 7.75rem); line-height: .89; letter-spacing:
 .section-head p { margin-top: .4rem; color: var(--muted); }
 .section-head .label { margin: 0 0 .55rem; }
 .lab { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(1.2rem, 4vw, 3rem); align-items: center; border: 1px solid var(--line); background: #fffefa; padding: clamp(1.2rem, 3vw, 2.1rem); border-radius: .65rem; }
-.lab-copy h3, .card-copy h3, .project-list h3 { margin-block: .4rem .65rem; }
+.lab-copy h3, .card-copy h3 { margin-block: .4rem .65rem; }
 .lab-copy a { display: inline-block; margin-top: 1rem; font-weight: 650; }
 .lab img { width: 100%; border: 1px solid var(--line); border-radius: .25rem; }
 figcaption { color: var(--muted); font-size: .81rem; margin-top: .55rem; }
 .brief { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(1rem, 4vw, 3rem); align-items: baseline; border-bottom: 1px solid var(--line); padding: 1.5rem 0; }
-.marine, footer { background: var(--deep); color: #f7faf6; }
-.marine .label { color: var(--mint); }
-.marine-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.2rem, 3vw, 2rem); }
-.marine-card { display: flex; flex-direction: column; background: #1b3942; border: 1px solid #40616a; border-radius: .6rem; }
-.marine-card figure a, .marine-card figure img { display: block; border-radius: .55rem .55rem 0 0; }
-.marine-card img { aspect-ratio: 7 / 4; width: 100%; object-fit: cover; }
-.marine-card figcaption { color: #c1d4d4; margin: .6rem 1.2rem 0; }
+.projects, footer { background: var(--deep); color: #f7faf6; }
+.projects .label { color: var(--mint); }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.2rem, 3vw, 2rem); }
+.project-card { display: flex; flex-direction: column; background: #1b3942; border: 1px solid #40616a; border-radius: .6rem; }
+.projects-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem 1rem; }
+.motion-toggle { border: 1px solid #89acae; border-radius: .3rem; background: transparent; color: var(--mint); padding: .55rem .8rem; font: inherit; cursor: pointer; }
+.motion-toggle:hover { background: #294954; }
+.project-media { display: block; width: 100%; aspect-ratio: 16 / 9; background: #102931; border-radius: .55rem .55rem 0 0; object-fit: contain; }
+.project-media img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
+.forecast-media { background: #f0f1ed; }
+.detection-preview { position: relative; }
+.detection-preview .original-frame { position: absolute; inset: 0; opacity: 0; }
+.detection-preview.is-moving .original-frame { animation: compare-frames 5s infinite; }
+@keyframes compare-frames {
+  0%, 100% { opacity: 0; }
+  10%, 43% { opacity: 1; }
+  53%, 90% { opacity: 0; }
+}
+.project-card figcaption { color: #c1d4d4; margin: .6rem 1.2rem 0; }
 .card-copy { display: flex; flex: 1; flex-direction: column; align-items: start; padding: 1.2rem; }
 .card-copy > p:not(.label) { color: #e3eeee; max-width: 47ch; padding-bottom: 1rem; }
 .card-copy .links { margin-top: auto; color: var(--mint); }
-.project-list { border-top: 1px solid var(--line); }
-.project-list article { display: grid; grid-template-columns: minmax(0, 1fr) minmax(11rem, auto); gap: .65rem 2rem; align-items: center; border-bottom: 1px solid var(--line); padding-block: 1.4rem; }
-.project-list article > a { font-weight: 640; }
-.project-list p { max-width: 64ch; }
 .background { background: #e7eee5; border-top: 1px solid var(--line); }
 .background-grid, .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .background h3, .background p, footer p { margin-top: .85rem; }
@@ -75,14 +83,14 @@ footer { padding-block: 2.8rem; }
 footer .links { justify-self: end; color: var(--mint); }
 @media (max-width: 720px) {
   .hero-grid { grid-template-columns: 1fr .55fr; gap: 1.25rem; }
-  .lab, .brief, .marine-grid, .background-grid, .footer-grid, .about-grid { grid-template-columns: 1fr; }
+  .lab, .brief, .project-grid, .background-grid, .footer-grid, .about-grid { grid-template-columns: 1fr; }
   footer .links { justify-self: start; }
 }
 @media (max-width: 500px) {
   .wrap { width: calc(100% - 2rem); }
   .nav { gap: .35rem 1rem; }
   nav { gap: .2rem .9rem; }
-  .hero-grid, .project-list article { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
   .portrait { width: min(68%, 230px); margin-top: .5rem; justify-self: start; }
   h1 { font-size: clamp(3.25rem, 15vw, 4.6rem); }
 }
